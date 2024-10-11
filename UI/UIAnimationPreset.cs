@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace GrozaGames.Kit
 {
-    [CreateAssetMenu(menuName = "Groza Games/UI/UI Animation Function Preset", fileName = "UI Animation Function Preset")]
+    [CreateAssetMenu(menuName = "GrozaGames/UI/UI Animation Function Preset", fileName = "UI Animation Function Preset")]
     public class UIAnimationPreset : ScriptableObject
     {
         [SerializeField] private float _speed = 1f;

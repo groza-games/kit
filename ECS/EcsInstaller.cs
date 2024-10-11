@@ -1,3 +1,4 @@
+using System;
 using GrozaGames.Kit.ECS;
 using GrozaGames.Kit.Signals;
 using UnityEngine;
@@ -18,6 +19,12 @@ namespace GrozaGames.ECS
             Container.BindService<KeySignalBus<int>>();
 
             _sceneContext.PostResolve += OnSceneContextPostResolve;
+        }
+
+        private void Reset()
+        {
+            if (!_sceneContext)
+                _sceneContext = GetComponentInParent<SceneContext>();
         }
 
         private void OnSceneContextPostResolve()

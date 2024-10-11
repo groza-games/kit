@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace GrozaGames.Noises
 {
-    [CreateAssetMenu(fileName = "NoiseTexture", menuName = "Groza Games/Noises/NoiseTexture", order = 0)]
+    [CreateAssetMenu(fileName = "NoiseTexture", menuName = "GrozaGames/Noises/NoiseTexture", order = 0)]
     public class NoiseTexture2D : ScriptableObject, IFlatNoiseBaker
     {
         [field: SerializeField] public Texture2D Texture { get; private set; }

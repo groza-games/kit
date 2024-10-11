@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GrozaGames.Noises
 {
-    [CreateAssetMenu(fileName = "NoiseGenerationSettings", menuName = "Groza Games/Noises/NoiseGenerationSettings")]
+    [CreateAssetMenu(fileName = "NoiseGenerationSettings", menuName = "GrozaGames/Noises/NoiseGenerationSettings")]
     public class NoiseGenerationSettings : ScriptableObject, IFlatNoiseBaker, IVolumetricNoiseBaker
     {
         [SerializeField] private int _seed = 1337;

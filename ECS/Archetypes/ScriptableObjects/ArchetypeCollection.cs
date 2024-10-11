@@ -8,7 +8,7 @@ namespace GrozaGames.Kit.Archetypes.ScriptableObjects
     /// Коллекция архетипов, которая используется для управления списком архетипов в проекте.
     /// Предоставляет механизм поиска и добавления новых архетипов на основе префабов в указанных директориях.
     /// </summary>
-    [CreateAssetMenu(fileName = "ArchetypeCollection", menuName = "Groza Games/Archetypes/ArchetypeCollection")]
+    [CreateAssetMenu(fileName = "ArchetypeCollection", menuName = "GrozaGames/Archetypes/ArchetypeCollection")]
     public class ArchetypeCollection : BaseScriptableObjectCollection<Archetype>
     {
         /// <summary>
