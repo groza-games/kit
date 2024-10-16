@@ -13,6 +13,16 @@ namespace GrozaGames.Kit
             return new Vector2(vec.x, vec.z);
         }
         
+        public static Vector2Int ToXY(this Vector3Int vec)
+        {
+            return new Vector2Int(vec.x, vec.y);
+        }
+        
+        public static Vector2Int ToXZ(this Vector3Int vec)
+        {
+            return new Vector2Int(vec.x, vec.z);
+        }
+        
         public static Vector3 ToX0Z(this Vector2 vec)
         {
             return new Vector3(vec.x, 0, vec.y);
