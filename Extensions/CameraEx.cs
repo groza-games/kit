@@ -4,7 +4,7 @@ namespace GrozaGames.Kit
 {
     public static class CameraEx
     {
-        public static Rect GetRect(this Camera camera)
+        public static Rect GetRect2D(this Camera camera)
         {
             var verticalSize = camera.orthographicSize;
             var horizontalSize = verticalSize * Screen.width / Screen.height;
