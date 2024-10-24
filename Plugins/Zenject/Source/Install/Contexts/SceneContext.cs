@@ -250,11 +250,17 @@ namespace Zenject
             GetInjectableMonoBehaviours(injectableMonoBehaviours);
             foreach (var instance in injectableMonoBehaviours)
             {
+                if (!instance.enabled || !instance.gameObject.activeInHierarchy)
+                    continue;
+                
                 _container.QueueForInject(instance);
             }
 
             foreach (var decoratorContext in _decoratorContexts)
             {
+                if (!decoratorContext.enabled || !decoratorContext.gameObject.activeInHierarchy)
+                    continue;
+                
                 decoratorContext.Initialize(_container);
             }
 

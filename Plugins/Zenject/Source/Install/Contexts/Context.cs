@@ -169,7 +169,7 @@ namespace Zenject
 
             var allInstallers = normalInstallers.Cast<IInstaller>()
                 .Concat(scriptableObjectInstallers.Cast<IInstaller>())
-                .Concat(installers.Cast<IInstaller>()).ToList();
+                .Concat(installers.Where(x => x.enabled && x.gameObject.activeInHierarchy).Cast<IInstaller>()).ToList();
 
             foreach (var installerPrefab in installerPrefabs)
             {
