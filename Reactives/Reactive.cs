@@ -6,11 +6,13 @@ namespace GrozaGames.Kit
     public class Reactive<T>
     {
         [NonSerialized] protected T _value;
+        [NonSerialized] protected T _prevValue;
 
         public event OnValueChangedDelegate OnValueChanged;
         public event OnValueChangedExtendedDelegate OnValueChangedExtended;
 
         public T Value => _value;
+        public T PrevValue => _prevValue;
 
         public Reactive()
         {
@@ -27,52 +29,39 @@ namespace GrozaGames.Kit
             if (Equals(_value, newValue))
                 return;
 
-            var oldValue = _value;
+            _prevValue = _value;
             _value = newValue;
             OnValueChanged?.Invoke(_value);
-            OnValueChangedExtended?.Invoke(_value, oldValue);
+            OnValueChangedExtended?.Invoke(_value, _prevValue);
         }
 
         public void SetValueWithoutNotify(T newValue)
         {
+            _prevValue = _value;
             _value = newValue;
-        }
-
-        public void SubscribeAndExecute(OnValueChangedExtendedDelegate callback)
-        {
-            OnValueChangedExtended += callback;
-            callback(_value, _value);
-        }
-        
-        public void Subscribe(OnValueChangedExtendedDelegate callback)
-        {
-            OnValueChangedExtended += callback;
-        }
-
-        public void Unsubscribe(OnValueChangedExtendedDelegate callback)
-        {
-            OnValueChangedExtended -= callback;
-        }
-
-        public void SubscribeAndExecute(OnValueChangedDelegate callback)
-        {
-            OnValueChanged += callback;
-            callback(_value);
-        }
-        
-        public void Subscribe(OnValueChangedDelegate callback)
-        {
-            OnValueChanged += callback;
-        }
-
-        public void Unsubscribe(OnValueChangedDelegate callback)
-        {
-            OnValueChanged -= callback;
         }
         
         public static implicit operator T(Reactive<T> field) => field._value;
         
         public delegate void OnValueChangedDelegate(T value);
         public delegate void OnValueChangedExtendedDelegate(T newValue, T oldValue);
+    }
+
+    public static class ReactiveEx
+    {
+        public static bool IsDown(this Reactive<bool> reactive)
+        {
+            return reactive.Value && !reactive.PrevValue;
+        }
+        
+        public static bool IsUp(this Reactive<bool> reactive)
+        {
+            return !reactive.Value && reactive.PrevValue;
+        }
+
+        public static bool IsChanged(this Reactive<bool> reactive)
+        {
+            return reactive.Value != reactive.PrevValue;
+        }
     }
 }
