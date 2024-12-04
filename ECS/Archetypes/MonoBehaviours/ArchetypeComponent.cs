@@ -42,8 +42,7 @@ namespace GrozaGames.Kit.Archetypes.MonoBehaviours
         /// <summary>
         /// Данные компонента, которые будут добавлены на сущность в процессе выпекания.
         /// </summary>
-        [field: SerializeField]
-        public T Component { get; private set; }
+        public T Component;
 
         /// <summary>
         /// Выпекает компонент <typeparamref name="T"/> на сущность, добавляя его в пул ECS.
