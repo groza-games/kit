@@ -1,3 +1,12 @@
-﻿fileFormatVersion: 2
+fileFormatVersion: 2
 guid: 77366cdbe04e4980a02536aef030ebd8
-timeCreated: 1724783587
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _debugFramerateScreen: {fileID: 821293678159935237, guid: b5ee2ebaf8f0e404cb54d8d9951bacb0, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
