@@ -18,6 +18,9 @@ namespace GrozaGames.Abstract.BaseViews
                 throw new System.Exception("View is already instantiated");
             
             View = DiContainer.InstantiatePrefabForComponent<TScreenView>(ViewPrefab);
+            View.OnInitialize();
+            View.DestroyCalled += Hide;
+            
             return View;
         }
         
@@ -47,6 +50,9 @@ namespace GrozaGames.Abstract.BaseViews
             
             View = DiContainer.InstantiatePrefabForComponent<TScreenView>(ViewPrefab);
             View.SetModel(model);
+            View.OnInitialize();
+            View.DestroyCalled += Hide;
+            
             return View;
         }
         

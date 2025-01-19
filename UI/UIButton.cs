@@ -26,6 +26,8 @@ namespace GrozaGames.Kit
         public event Action<bool> OnInteractableChanged;
         public event Action<bool> OnHoverChanged;
         
+        public RectTransform RectTransform => _rectTransform;
+        
         public Image ButtonGraphic => _button.image;
 
         private bool _longPressed;
